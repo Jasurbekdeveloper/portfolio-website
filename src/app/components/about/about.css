@@ -1,0 +1,38 @@
+body {
+  background-color: #f9f9f9;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.skill {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.skill:hover {
+  background-color: #0056b3;
+}
+
+.experience {
+  margin-top: 20px;
+}
+
+.experience-item {
+  margin-bottom: 15px;
+}

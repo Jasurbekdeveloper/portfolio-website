@@ -1,0 +1,83 @@
+<div class="max-w-xl mx-auto mt-10 p-8 bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700">
+  <div class="text-center mb-8">
+    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">Bog'lanish</h2>
+    <p class="text-gray-500 dark:text-gray-400 mt-2">Savollaringiz bo'lsa, xabar qoldiring</p>
+  </div>
+  
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    
+    <!-- Ism maydoni -->
+    <div class="space-y-1.5">
+      <label class="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">Ism</label>
+      <input 
+        formControlName="name" 
+        placeholder="Ismingizni kiriting"
+        [class.border-red-500]="f['name'].touched && f['name'].invalid"
+        class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all" />
+      
+      <div class="min-h-[20px] ml-1">
+        @if (f['name'].touched && f['name'].errors?.['required']) {
+          <small class="text-red-500 text-xs font-medium animate-in fade-in slide-in-from-top-1">Ismni kiritish shart.</small>
+        }
+      </div>
+    </div>
+
+    <!-- Email maydoni -->
+    <div class="space-y-1.5">
+      <label class="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">Email manzilingiz</label>
+      <input 
+        type="email"
+        formControlName="email" 
+        placeholder="misol@mail.com"
+        [class.border-red-500]="f['email'].touched && f['email'].invalid"
+        class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all" />
+      
+      <div class="min-h-[20px] ml-1">
+        @if (f['email'].touched && f['email'].invalid) {
+          <small class="text-red-500 text-xs font-medium">
+            @if (f['email'].errors?.['required']) { Email kiritish shart. }
+            @if (f['email'].errors?.['email']) { Email formati noto'g'ri. }
+          </small>
+        }
+      </div>
+    </div>
+
+    <!-- Xabar maydoni (Siz yozgan zamonaviy qism) -->
+    <div class="space-y-1.5">
+      <label for="message" class="text-sm font-semibold text-gray-700 dark:text-gray-300 flex justify-between ml-1">
+        Xabaringiz
+        @if (msg?.touched && msg?.invalid) {
+          <span class="text-xs font-medium text-red-500 animate-pulse">Xatolik!</span>
+        }
+      </label>
+      <div class="relative">
+        <textarea
+          id="message"
+          formControlName="message"
+          rows="4"
+          placeholder="Loyihangiz haqida yozing..."
+          [class]="msg?.touched && msg?.invalid ? 'border-red-500 ring-2 ring-red-500/10' : 'border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10'"
+          class="w-full px-4 py-3 rounded-xl border bg-white dark:bg-gray-900 outline-none transition-all duration-200 resize-none"
+        ></textarea>
+        @if (msg?.valid && msg?.dirty) {
+          <div class="absolute right-3 bottom-3 text-green-500 animate-in zoom-in">
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+          </div>
+        }
+      </div>
+      <div class="min-h-[20px] ml-1">
+        @if (msg?.touched && msg?.errors?.['required']) {
+          <small class="text-red-500 text-xs font-medium">Xabar qoldirish majburiy.</small>
+        }
+      </div>
+    </div>
+
+    <!-- Yuborish tugmasi -->
+    <button 
+      type="submit" 
+      [disabled]="contactForm.invalid"
+      class="w-full py-4 px-6 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold rounded-xl shadow-lg shadow-blue-500/30 transition-all active:scale-[0.98]">
+      Xabarni yuborish
+    </button>
+  </form>
+</div>

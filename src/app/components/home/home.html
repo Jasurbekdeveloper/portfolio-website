@@ -1,0 +1,45 @@
+<div class="home min-h-[80vh] flex flex-col items-center justify-center text-center px-4">
+  
+  <!-- Sarlavha qismi -->
+  <h1 class="text-lg md:text-xl font-medium text-blue-600 dark:text-blue-400 tracking-widest uppercase mb-4 animate-bounce">
+    Welcome to My Portfolio
+  </h1>
+
+  <!-- Ism va Kasb -->
+  <h2 class="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white mb-6 tracking-tight">
+    I'm <span class="bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent">{{ name() }}</span>
+  </h2>
+
+  <!-- Tavsif -->
+  <div class="max-w-2xl space-y-4 mb-10">
+    <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-light">
+      I'm a <span class="font-semibold text-gray-800 dark:text-gray-100 border-b-2 border-blue-500 italic">{{ profession() }}</span> 
+      with a passion for <span class="text-indigo-500">creative coding</span>.
+    </p>
+    <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+      {{ intro() }}
+    </p>
+  </div>
+
+    <!-- Harakat tugmalari -->
+  <div class="flex flex-col sm:flex-row gap-4 items-center">
+    <!-- View My Work (Asosiy tugma) -->
+    <a routerLink="/portfolio" 
+       class="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 font-bold text-white transition-all duration-200 bg-blue-600 rounded-xl hover:bg-blue-700 shadow-lg hover:shadow-blue-500/50 active:scale-95">
+      View My Work
+      <svg class="w-5 h-5 ml-2 -mr-1 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+      </svg>
+    </a>
+
+    <!-- Download CV (Ikkinchi darajali tugma) -->
+    <a href="assets/Mamatqulov_CV.pdf" 
+       download="Mamatqulov_CV.pdf"
+       class="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 font-bold text-gray-700 dark:text-gray-200 transition-all duration-200 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-500 active:scale-95 shadow-sm">
+      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+      </svg>
+      Download CV
+    </a>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Project One",
+    "technologies": ["Angular", "TypeScript", "Tailwind CSS"],
+    "description": "A sample project demonstrating Angular features."
+  },
+  {
+    "name": "Project Two",
+    "technologies": ["React", "JavaScript", "CSS"],
+    "description": "A React project showcasing component-based architecture."
+  },
+  {
+    "name": "Project Three",
+    "technologies": ["Vue", "JavaScript", "SCSS"],
+    "description": "A Vue.js project with state management."
+  }
+]
